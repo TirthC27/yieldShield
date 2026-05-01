@@ -1,35 +1,35 @@
 {
-  "name": "yoldr-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "yoldr",
+  "version": "1.0.0",
+  "description": "YOLDR — Principal-Protected DeFi Vault with Leveraged Yield Positions",
   "scripts": {
-    "dev": "node node_modules/next/dist/bin/next dev",
-    "build": "node node_modules/next/dist/bin/next build",
-    "start": "node node_modules/next/dist/bin/next start",
-    "lint": "node node_modules/next/dist/bin/next lint"
+    "compile": "npx hardhat compile && node scripts/copyAbis.js",
+    "copy-abis": "node scripts/copyAbis.js",
+    "test": "npx hardhat test",
+    "deploy:arbitrum": "npx hardhat run scripts/deploy.ts --network arbitrumSepolia",
+    "mint": "npx hardhat run scripts/mintTestTokens.ts --network arbitrumSepolia",
+    "deploy:local": "npx hardhat run scripts/deploy.ts --network localhost"
+  },
+  "keywords": [
+    "defi",
+    "vault",
+    "yield",
+    "iexec",
+    "nox",
+    "arbitrum"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.4.0"
   },
   "dependencies": {
-    "@onflow/fcl": "^1.21.9",
-    "@onflow/react-sdk": "^0.20.0",
-    "@onflow/types": "^1.5.0",
-    "@types/three": "^0.183.1",
-    "framer-motion": "^12.38.0",
-    "lucide-react": "^0.577.0",
-    "next": "^14.2.35",
-    "react": "^18",
-    "react-dom": "^18",
-    "recharts": "^3.8.0",
-    "three": "^0.183.2",
-    "zustand": "^5.0.12"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.35",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.9.3"
+    "@iexec-nox/nox-confidential-contracts": "^0.1.0",
+    "@iexec-nox/nox-protocol-contracts": "^0.2.2",
+    "@openzeppelin/contracts": "^5.1.0",
+    "dotenv": "^16.4.0"
   }
 }

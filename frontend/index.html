@@ -6,9 +6,20 @@
     <title>YieldShield — Principal-Protected DeFi Vault</title>
     <meta name="description" content="YOLDR: Deposit tokens, earn yield, open leveraged positions. Your principal is NEVER at risk. Powered by iExec Nox." />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!-- Polyfill Node.js globals required by Web3 packages (must run before any module) -->
+    <script>
+      window.global = window.globalThis;
+      if (typeof process === 'undefined') {
+        window.process = { env: {}, version: 'v18.0.0', platform: 'browser', browser: true };
+      }
+      if (typeof Buffer === 'undefined') {
+        window.Buffer = { isBuffer: () => false };
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
+

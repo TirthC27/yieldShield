@@ -5,7 +5,7 @@
 
 ---
 
-## 🎯 The Problem We're Solving
+## 🎯 The Problem We're Solving--
 
 In traditional DeFi, users face an all-or-nothing risk model: deposit your capital, expose it entirely to market volatility, and hope your strategy doesn't get liquidated. A single bad trade can wipe out months — or years — of savings. This forces users into an impossible choice: either accept near-zero yields from "safe" protocols, or risk their principal in high-yield strategies.
 
@@ -165,7 +165,7 @@ YOLDR deeply integrates ChainGPT at every user touchpoint:
 // We use ChainGPT's /chat/stream endpoint
 const response = await fetch("https://api.chaingpt.org/chat/stream", {
   method: "POST",
-  headers: { Authorization: `Bearer ${CHAINGPT_API_KEY}` },
+       headers: { Authorization: `Bearer ${CHAINGPT_API_KEY}` },
   body: JSON.stringify({
     model: "general_assistant",
     question: prompt,  // Context-aware DeFi prompt
@@ -239,8 +239,8 @@ cp .env.example .env
 
 Edit `.env`:
 ```env
-PRIVATE_KEY=your_deployer_private_key_here
-CHAINGPT_API_KEY=your_chaingpt_api_key_here
+PRIVATE_KEY=your_deployer_PRIVATE_KEY_here
+CHAINGPT_API_KEY=your_CHAINGPT_API_KEY_here
 ARBITRUM_SEPOLIA_RPC=https://sepolia-rollup.arbitrum.io/rpc
 ```
 

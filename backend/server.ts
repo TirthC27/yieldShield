@@ -193,5 +193,5 @@ const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`🔐 YieldShield Audit API running on http://localhost:${PORT}`);
   console.log(`   ChainGPT key: ${CHAINGPT_API_KEY ? "✅ configured" : "❌ missing"}`);
-  console.log(`   Faucet key: ${process.env.PRIVATE_KEY ? "✅ configured" : "❌ missing"}`);
+  console.log(`   Faucet key: ${PRIVATE_KEY ? "✅ configured" : "❌ missing"}`);
 });

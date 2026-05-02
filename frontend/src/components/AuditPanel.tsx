@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+// Backend API base — set VITE_API_URL in your deployment env vars
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:3001";
+
 export default function AuditPanel() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<string | null>(null);
@@ -10,7 +13,7 @@ export default function AuditPanel() {
     setError(null);
     setResult(null);
     try {
-      const res = await fetch("http://localhost:3001/api/audit", { method: "POST" });
+      const res = await fetch(`${API_BASE}/api/audit`, { method: "POST" });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Audit failed");
       setResult(data.audit);

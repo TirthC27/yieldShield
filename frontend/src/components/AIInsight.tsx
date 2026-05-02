@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 
+// Backend API base — set VITE_API_URL in your deployment env vars
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:3001";
+
 interface AIInsightProps {
   action: string;
   asset?: string;
@@ -31,7 +34,7 @@ export default function AIInsight({
     setVisible(true);
 
     try {
-      const res = await fetch("http://localhost:3001/api/suggest", {
+      const res = await fetch(`${API_BASE}/api/suggest`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ action, asset, direction, amount, principal, yieldAmount, positions }),

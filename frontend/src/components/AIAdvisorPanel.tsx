@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 
+// Backend API base — set VITE_API_URL in your deployment env vars
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:3001";
+
 interface AIAdvisorPanelProps {
   context: string;
   amount?: string;
@@ -31,7 +34,7 @@ export default function AIAdvisorPanel({
 
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:3001/api/proactive-suggest", {
+      const res = await fetch(`${API_BASE}/api/proactive-suggest`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ context, amount, asset, direction, principal, yieldAmount }),

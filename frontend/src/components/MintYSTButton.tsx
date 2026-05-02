@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useAccount } from "wagmi";
 import { useToast } from "../context/ToastContext";
 
+// Backend API base — set VITE_API_URL in your deployment env vars
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:3001";
+
 export default function MintYSTButton() {
   const { address } = useAccount();
   const { addToast } = useToast();
@@ -16,7 +19,7 @@ export default function MintYSTButton() {
     }
     setMinting(true);
     try {
-      const res = await fetch("http://localhost:3001/api/faucet", {
+      const res = await fetch(`${API_BASE}/api/faucet`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ to: address, amount: mintAmount }),

@@ -15,14 +15,7 @@ export default defineConfig({
     include: [
       'ethers',
     ],
-    // @iexec-nox/handle is dynamically imported — let Vite handle it as native ESM
     exclude: ['@iexec-nox/handle'],
-    esbuildOptions: {
-      target: 'es2020',
-      define: {
-        global: 'globalThis',
-      },
-    },
   },
   resolve: {
     alias: {
